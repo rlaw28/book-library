@@ -5,18 +5,22 @@ const entryDisplay = document.querySelector('.entry-card');
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
-    this.title
-    this.author
-    this.pages
-    this.read
+    this.title = title
+    this.author = author
+    this.pages = pages
+    this.read = read
 };
 
 
-Book.prototype.addBookToLibrary = function () {
-    myLibrary.push(this.title, this.author, this.pages, this.read);
+const addBookToLibrary = (obj) => {
+    myLibrary.push(obj);
 }
 
+   
 const meditations = new Book("Meditations", "Marcus Arelius", 256, "Read");
+const metaphysics = new Book("Metaphysics", "Aristotle", 512, "Haven't Read");
 
-meditations.addBookToLibrary();
+addBookToLibrary(meditations);
+addBookToLibrary(metaphysics)
+
 console.log(myLibrary);
