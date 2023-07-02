@@ -1,5 +1,12 @@
-const entryDisplay = document.querySelector('.entry-card');
 
+const titleEntry = document.getElementById('title');
+const authorEntry = document.getElementById('author');
+const pageEntry = document.getElementById('pages');
+const checkRead = document.getElementById('read');
+
+const entryDisplay = document.querySelector('.entry-card');
+const entryBtn = document.querySelector('.add-entry');
+const deleteBtn = document.querySelector('.delete-entry');
 
 
 let myLibrary = [];
@@ -12,15 +19,33 @@ function Book(title, author, pages, read) {
 };
 
 
-const addBookToLibrary = (obj) => {
+const addBookToLibrary = obj => {
     myLibrary.push(obj);
 }
 
-   
+const displayBook = function () {
+    for (const book of myLibrary) {
+        entryDisplay.textContent = book;
+}
+}
+
+const display = function () {
+    entryDisplay.textContent = `Book: ${titleEntry}`;
+}
+
+entryBtn.addEventListener('click', display);
+
 const meditations = new Book("Meditations", "Marcus Arelius", 256, "Read");
 const metaphysics = new Book("Metaphysics", "Aristotle", 512, "Haven't Read");
 
 addBookToLibrary(meditations);
-addBookToLibrary(metaphysics)
+addBookToLibrary(metaphysics);
 
-console.log(myLibrary);
+// console.log(myLibrary);
+
+// myLibrary.forEach((book) => {
+//     entryDisplay.textContent = `Book: ${book.title} Author: ${book.author} Pages: ${book.pages}`;
+//  }
+// )   
+
+
