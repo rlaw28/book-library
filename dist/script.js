@@ -30,7 +30,10 @@ const displayBook = function () {
 }
 
 const display = function () {
-    entryDisplay.textContent = `Book: ${titleEntry}`;
+    entryDisplay.textContent = `Book: ${titleEntry.value} | Author: ${authorEntry.value} | Page Count: ${pageEntry.value}`;
+    titleEntry.value = '';
+    authorEntry.value = '';
+    pageEntry.value = '';
 }
 
 entryBtn.addEventListener('click', display);
