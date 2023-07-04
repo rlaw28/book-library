@@ -4,7 +4,7 @@ const authorEntry = document.getElementById('author');
 const pageEntry = document.getElementById('pages');
 const checkRead = document.getElementById('read');
 
-const entryDisplay = document.querySelector('.entry-card');
+const cardContainer = document.querySelector('.card-container');
 const entryBtn = document.querySelector('.add-entry');
 const deleteBtn = document.querySelector('.delete-entry');
 
@@ -23,14 +23,23 @@ const addBookToLibrary = obj => {
     myLibrary.push(obj);
 }
 
-const displayBook = function () {
-    for (const book of myLibrary) {
-        entryDisplay.textContent = book;
-}
-}
+// const displayBook = (arr) => {
+    myLibrary.forEach((book) => {
+    console.log(`Title: ${book.title} | Author: ${book.author} | Pages: ${book.pages} | Read: ${book.read}`)
+    // const html = `<div class="entry-card p-7 flex items-center bg-transparent border-b-2 border-green-200">
+    //      Title: ${book.title} | Author: ${book.author} | Pages: ${book.pages} | Read: ${book.read}
+    //     </div>`;
+
+    // cardContainer.insertAdjacentHTML('afterbegin', html);
+});
+// };
+
+// displayBook(myLibrary);
+
+
 
 const display = function () {
-    entryDisplay.textContent = `Book: ${titleEntry.value} | Author: ${authorEntry.value} | Page Count: ${pageEntry.value}`;
+    cardContainer.textContent = `Book: ${titleEntry.value} | Author: ${authorEntry.value} | Page Count: ${pageEntry.value}`;
     titleEntry.value = '';
     authorEntry.value = '';
     pageEntry.value = '';
@@ -44,7 +53,7 @@ const metaphysics = new Book("Metaphysics", "Aristotle", 512, "Haven't Read");
 addBookToLibrary(meditations);
 addBookToLibrary(metaphysics);
 
-// console.log(myLibrary);
+console.log(myLibrary);
 
 // myLibrary.forEach((book) => {
 //     entryDisplay.textContent = `Book: ${book.title} Author: ${book.author} Pages: ${book.pages}`;
