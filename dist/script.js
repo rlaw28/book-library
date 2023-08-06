@@ -2,7 +2,7 @@
 const titleEntry = document.getElementById('title');
 const authorEntry = document.getElementById('author');
 const pageEntry = document.getElementById('pages');
-const checkRead = document.getElementById('read');
+const read = document.getElementById('read');
 
 const cardContainer = document.querySelector('.card-container');
 const entryBtn = document.querySelector('.add-entry');
@@ -39,10 +39,14 @@ const addBookToLibrary = obj => {
 
 
 const display = function () {
-    cardContainer.textContent = `Book: ${titleEntry.value} | Author: ${authorEntry.value} | Page Count: ${pageEntry.value}`;
+    cardContainer.textContent = `Book: ${titleEntry.value} | Author: ${authorEntry.value} | Page Count: ${pageEntry.value} | ${read.checked ? 'Read' : 'Plan to read'}`;
     titleEntry.value = '';
     authorEntry.value = '';
     pageEntry.value = '';
+}
+
+const removeBook = function () {
+    
 }
 
 entryBtn.addEventListener('click', display);
